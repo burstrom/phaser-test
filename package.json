@@ -1,0 +1,10 @@
+{
+  "name": "Johans first phaser-test",
+  "version": "0.0.1",
+  "scripts": {
+    "start": ""
+  },
+  "dependencies": {
+    "http-server": "^14.1.0"
+  }
+}
