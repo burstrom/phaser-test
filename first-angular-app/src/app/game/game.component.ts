@@ -78,7 +78,8 @@ class MainScene extends Phaser.Scene {
     this.load.image('sky', 'assets/sky.png');
     this.load.image('ground', 'assets/platform.png');
     this.load.image('pineapple', 'assets/Pineapple.png');
-    this.load.image('shrimp', 'assets/Shrimp.png');
+    //this.load.image('shrimp', 'assets/Shrimp.png');
+    this.load.image('shrimp', 'assets/corona.png');
     this.load.spritesheet('dude',
       'assets/dude.png',
       { frameWidth: 213, frameHeight: 320 }
@@ -183,7 +184,7 @@ class MainScene extends Phaser.Scene {
     player.anims.play('turn');
 
     this.gameOver = true
-    this.informationText = this.add.text(200, 200, "A shrimp got you!\n\nYour score: "+this.score+"\n\nPress SPACE to restart game!", { font: "50px Arial"});
+    this.informationText = this.add.text(200, 200, "You got Covid-19\nso now you need rest!\n\nYour score: "+this.score+"\n\nPress SPACE to restart game!", { font: "50px Arial"});
   }
 
   private collectStar(player: any, star: any) {
@@ -203,9 +204,10 @@ class MainScene extends Phaser.Scene {
 
   private summonBomb(player: any) {
     var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-    var bomb = this.bombs.create(x, 16, 'shrimp');
+    // var y = (player.y < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+    var bomb = this.bombs.create(x, 10, 'shrimp');
     bomb.setBounce(1);
-    bomb.setScale(1.5);
+    bomb.setScale(0.05);
     bomb.setCollideWorldBounds(true);
     bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
   }
